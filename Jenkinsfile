@@ -1,30 +1,12 @@
-pipeline{
-agent any
-stages {
-stage('build')
-{
-steps{
-echo 'Building the Application'
-}
-}
+pipeline {
+  agent any
+  stages {
+    stage('Git-Checkout') {
+      steps {
+        cleanWs(deleteDirs: true, notFailBuild: true, skipWhenFailed: true)
+        echo 'Hello'
+      }
+    }
 
-stage('test')
-{
-steps{
-echo 'Testing the Application'
+  }
 }
-}
-
-
-stage('deploy')
-{
-steps
-{
-echo 'Building the Application'
-}
-}
-
-
-}
-}
-
